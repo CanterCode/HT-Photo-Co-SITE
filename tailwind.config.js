@@ -12,6 +12,7 @@ module.exports = {
         coral: "rgb(var(--color-coral) / <alpha-value>)",
         blush: "rgb(var(--color-blush) / <alpha-value>)",
         cream: "rgb(var(--color-cream) / <alpha-value>)",
+        charcoal: "rgb(var(--color-charcoal) / <alpha-value>)",
       },
       fontFamily: {
         script: ["var(--font-script)", "cursive"],

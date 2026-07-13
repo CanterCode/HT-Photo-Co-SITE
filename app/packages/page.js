@@ -31,13 +31,13 @@ export default function PackagesPage() {
                   key={index}
                   className="flex flex-col items-center rounded-lg bg-blush p-8 text-center"
                 >
-                  <p className="font-display text-2xl font-medium text-moss">
+                  <p className="font-display text-2xl font-medium text-charcoal">
                     {pkg.name}
                   </p>
-                  <p className="mt-2 font-body text-lg text-moss">
+                  <p className="mt-2 font-body text-lg text-charcoal">
                     {pkg.price}
                   </p>
-                  <p className="mt-4 font-body text-sm text-moss/80">
+                  <p className="mt-4 font-body text-sm text-charcoal">
                     [Package details placeholder]
                   </p>
                 </div>

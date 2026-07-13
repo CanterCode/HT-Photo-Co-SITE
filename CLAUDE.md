@@ -28,7 +28,7 @@ Hannah's brand sits at the intersection of a few qualities that all need to be t
 
 ### Color Palette
 
-Locked 2026-07-13. Five colors.
+Locked 2026-07-13, Charcoal added 2026-07-13 (follow-up fix pass). Six colors.
 
 | Variable | Hex | Tailwind class | Role |
 |---|---|---|---|
@@ -37,13 +37,18 @@ Locked 2026-07-13. Five colors.
 | `--color-coral` | `#FFBBBA` | `coral` | Warm accent — section backgrounds, tags, dividers, photo overlays |
 | `--color-blush` | `#FFE2DE` | `blush` | Warm accent — section backgrounds, tags, dividers, photo overlays |
 | `--color-cream` | `#F4F1EA` | `cream` | Site background color throughout — warm off-white |
+| `--color-charcoal` | `#2B2723` | `charcoal` | Warm near-black neutral, no green cast — text on top of Coral/Blush backgrounds |
 
 Usage rules:
 
-- **Moss is the primary color.** Logo ink on light/cream backgrounds, headings, body copy, buttons, and links on light backgrounds. Accessible (WCAG AA) on cream, white, blush, and coral.
+- **Moss is the primary color.** Logo ink on light/cream backgrounds, headings, body copy, buttons, and links on light backgrounds. Accessible (WCAG AA) on cream and white.
 - **Forest is secondary to Moss, not a replacement.** Reserved for dark section backgrounds — nav bar, footer, hero photo overlays/scrims. Pair Forest backgrounds with **Cream or Blush text**, never Moss text — the two greens are too close in value to read clearly together.
-- **Coral and Blush are warm accent tones** for section backgrounds, tags, dividers, and photo overlays. Pair with **Moss text** on top, not white.
+- **Pink (Coral/Blush) and green (Moss/Forest) never sit directly on top of each other, in either direction** — this was violated throughout the original build and corrected sitewide 2026-07-13:
+  - **Pink as a background** (Coral or Blush used as a section/card/box background): text on top must be **Cream or Charcoal** — never Moss or Forest. In practice this almost always means **Charcoal**, since Coral/Blush are pale pastels and Cream (also very light) fails contrast against them — Cream-on-pink only works if the pink itself were dark/saturated, which ours isn't.
+  - **Pink as text/accent color** (Coral or Blush used for headings, labels, or small accent text): only on top of a **dark** background — Forest or Charcoal — never on Cream, white, or other light backgrounds, where it reads washed out.
+  - Green backgrounds (Forest) still pair with Cream/Blush text as before — that half of the rule is unchanged.
 - **Cream is the site's base background color everywhere.** Avoid pure white (`#FFFFFF`) as a background. Reserve white for rare high-contrast moments only (e.g. a button sitting on a dark photo overlay).
+- **Charcoal** is a true neutral (not another shade of green), added specifically so text can sit on Coral/Blush without the green/pink clash above. ~9.2:1 contrast on Coral, ~12.1:1 on Blush (computed via WCAG relative luminance) — comfortably clears AA and AAA.
 
 ### Typography
 
@@ -67,14 +72,14 @@ Logo SVGs live as inlined React components in [`components/logos/`](components/l
 
 | Route | Page | Purpose |
 |---|---|---|
-| `/` | Home | First impression — hero, a taste of featured work, a brief intro to Hannah, and a CTA into Contact. |
+| `/` | Home | First impression — text-free rotating-photo hero (the large centered Navbar logo is the only content over it), a taste of featured work, a brief intro to Hannah, and a CTA into Contact. |
 | `/about` | About Hannah | Who Hannah is, her bio, and how she works with clients. |
 | `/weddings` | Weddings | What a wedding booking includes and a showcase of featured weddings. |
 | `/packages` | Packages | Pricing/package tiers for prospective clients to compare. |
 | `/gallery` | Gallery | A broader visual showcase of Hannah's work beyond weddings. |
 | `/contact` | Contact | How to get in touch — inquiry form and contact details. |
 
-Global elements: a fixed `Navbar` (3 links left, full logo centered, 3 links right, mobile hamburger below `md:`) and a `Footer` (logo, repeated nav links, contact placeholders, copyright) appear on every page via [`app/layout.js`](app/layout.js). The Navbar is transparent over the Home hero and transitions to a solid Cream background on scroll or on any page without a hero photo — see [`components/Navbar.jsx`](components/Navbar.jsx). Because the Navbar is `fixed`, [`components/PageHero.jsx`](components/PageHero.jsx) carries extra top padding to clear it; keep that in mind if the Navbar's height changes.
+Global elements: a fixed `Navbar` (3 links left, full logo centered, 3 links right, mobile hamburger below `md:`) and a `Footer` (logo, repeated nav links, contact placeholders, copyright) appear on every page via [`app/layout.js`](app/layout.js). The Navbar logo is intentionally the dominant visual element of the header (up to `lg:h-32` — ~128px tall, ~176px total bar height on large desktop, per the 2026-07-13 fix pass), with nav links reading as clearly secondary. The Navbar is transparent over the Home hero and transitions to a solid Cream background on scroll or on any page without a hero photo — see [`components/Navbar.jsx`](components/Navbar.jsx). Because the Navbar is `fixed` and its height varies by breakpoint, [`components/PageHero.jsx`](components/PageHero.jsx) carries matching tiered top padding (`pt-36 sm:pt-40 md:pt-44 lg:pt-48`) to clear it — if the Navbar's logo size or padding changes, update PageHero's padding to match.
 
 ## 5. Copy Voice Guidelines
 
@@ -89,7 +94,7 @@ When real copy is written in a future pass, it should follow these rules:
 
 - **Framework:** Next.js 15, App Router (`app/` directory).
 - **Language:** JavaScript, not TypeScript — `.js` / `.jsx` files only.
-- **Styling:** Tailwind CSS utility classes only. No raw hex codes in components — always go through the `moss` / `forest` / `coral` / `blush` / `cream` and `font-script` / `font-display` / `font-body` utilities defined in `tailwind.config.js`. The one sanctioned exception is the logo components in `components/logos/`, which take a `style` prop to set the `--logo-ink` / `--logo-bg` CSS variables per usage (see Logo Components above) — that inline style is structural, not a styling shortcut, so don't extend the exception elsewhere.
+- **Styling:** Tailwind CSS utility classes only. No raw hex codes in components — always go through the `moss` / `forest` / `coral` / `blush` / `cream` / `charcoal` and `font-script` / `font-display` / `font-body` utilities defined in `tailwind.config.js`. The one sanctioned exception is the logo components in `components/logos/`, which take a `style` prop to set the `--logo-ink` / `--logo-bg` CSS variables per usage (see Logo Components above), plus the Hero's top scrim gradient (`components/Hero.jsx`), which needs precise multi-stop opacity control that Tailwind's gradient utilities can't express — both are structural, not a styling shortcut, so don't extend the exception elsewhere.
 - **Components:** Live in `/components`, one component per file. Home-page-only section components live in `components/home/`.
 - **Animation:** Framer Motion is installed for light fade/slide-in-on-scroll effects (see [`components/FadeIn.jsx`](components/FadeIn.jsx)) and the Hero's image crossfade (see [`components/Hero.jsx`](components/Hero.jsx)) — nothing elaborate.
 - **Icons:** Lucide React.
@@ -100,8 +105,8 @@ When real copy is written in a future pass, it should follow these rules:
 
 **Home (`/`) is a visual/structural mockup pass; the other five routes are still a bare scaffold.** Specifically:
 
-- **Home page (`/`):** Built out in close visual imitation of a reference photography site — full-viewport rotating hero, alternating full-viewport sections below it. All copy on Home is placeholder text in Hannah's-voice tone (not bracketed stubs, but not approved content either — see Copy Voice Guidelines). All photography on Home is **temporary, confirmed-license Unsplash placeholder imagery** (see [`lib/heroImages.js`](lib/heroImages.js) and [`lib/homeImages.js`](lib/homeImages.js)) standing in for Hannah's real work — swap the `src` values in those two files when real photos arrive; no other code changes needed. Do not mistake this placeholder photography for Hannah's actual portfolio.
-- **About / Weddings / Packages / Gallery / Contact:** Still the original structure-first scaffold — colored boxes (`bg-coral` / `bg-blush` / `bg-cream`) stand in for real photos, and copy is marked with bracketed notes like "[Placeholder supporting line]." These five pages were intentionally left untouched in the design-system-update + Home-build pass (2026-07-13) and are open work for a future session.
+- **Home page (`/`):** Built out in close visual imitation of a reference photography site — full-viewport rotating hero (text-free; the large Navbar logo is the only overlay content), alternating full-viewport sections below it. All copy on Home is placeholder text in Hannah's-voice tone (not bracketed stubs, but not approved content either — see Copy Voice Guidelines). All photography on Home is **temporary, confirmed-license Unsplash placeholder imagery** (see [`lib/heroImages.js`](lib/heroImages.js) and [`lib/homeImages.js`](lib/homeImages.js)) standing in for Hannah's real work — swap the `src` values in those two files when real photos arrive; no other code changes needed. Do not mistake this placeholder photography for Hannah's actual portfolio.
+- **About / Weddings / Packages / Gallery / Contact:** Still the original structure-first scaffold — colored boxes (`bg-coral` / `bg-blush` / `bg-cream`) stand in for real photos, and copy is marked with bracketed notes like "[Placeholder supporting line]." These five pages got a follow-up fix pass (2026-07-13) correcting color/contrast violations (pink-background text switched from Moss/Forest to Charcoal, washed-out heading weight/opacity brought up to full contrast) — but their layout, structure, and copy are otherwise untouched scaffold and remain open work for a future content/design session.
 - All business details — address, phone number, email, pricing, package details, bio content, and testimonials — are marked `[TBD]` because Hannah's actual business information hasn't been collected yet. Do not invent or guess these details.
 - Section stubs on the five untouched pages (e.g. "Featured Weddings grid goes here") mark where real layouts and content will go in a future content/design pass.
 

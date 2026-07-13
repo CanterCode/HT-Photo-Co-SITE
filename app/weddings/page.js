@@ -19,7 +19,7 @@ export default function WeddingsPage() {
       <section className="py-12">
         <SectionContainer>
           <FadeIn>
-            <h2 className="font-display text-3xl font-medium text-moss">
+            <h2 className="font-display text-3xl font-bold text-moss">
               What&rsquo;s Included
             </h2>
             {/* "What's included" list/content goes here */}
@@ -36,7 +36,7 @@ export default function WeddingsPage() {
       <section className="bg-blush py-12">
         <SectionContainer>
           <FadeIn>
-            <h2 className="font-display text-3xl font-medium text-moss">
+            <h2 className="font-display text-3xl font-bold text-charcoal">
               Featured Weddings
             </h2>
             {/* Featured Weddings grid goes here */}

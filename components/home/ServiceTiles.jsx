@@ -33,10 +33,10 @@ export default function ServiceTiles() {
     <section className="flex min-h-screen items-center bg-blush py-24">
       <SectionContainer>
         <FadeIn>
-          <p className="text-center font-script text-3xl text-moss">
+          <p className="text-center font-script text-3xl text-charcoal">
             What I offer
           </p>
-          <h2 className="mt-2 text-center font-display text-4xl font-bold text-moss sm:text-5xl">
+          <h2 className="mt-2 text-center font-display text-4xl font-bold text-charcoal sm:text-5xl">
             A few ways to work together
           </h2>
         </FadeIn>
@@ -57,10 +57,10 @@ export default function ServiceTiles() {
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <h3 className="mt-4 font-display text-2xl font-bold text-moss">
+                <h3 className="mt-4 font-display text-2xl font-bold text-charcoal">
                   {tile.label}
                 </h3>
-                <p className="mt-2 font-body text-moss/80">
+                <p className="mt-2 font-body text-charcoal">
                   {tile.description}
                 </p>
               </Link>

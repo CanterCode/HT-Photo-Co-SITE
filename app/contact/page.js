@@ -20,7 +20,7 @@ export default function ContactPage() {
           <FadeIn>
             <form className="flex flex-col gap-4 rounded-lg bg-blush p-6 sm:p-8">
               <div className="flex flex-col gap-1">
-                <label htmlFor="name" className="font-body text-sm font-semibold text-moss">
+                <label htmlFor="name" className="font-body text-sm font-semibold text-charcoal">
                   Name
                 </label>
                 <input
@@ -31,7 +31,7 @@ export default function ContactPage() {
                 />
               </div>
               <div className="flex flex-col gap-1">
-                <label htmlFor="email" className="font-body text-sm font-semibold text-moss">
+                <label htmlFor="email" className="font-body text-sm font-semibold text-charcoal">
                   Email
                 </label>
                 <input
@@ -42,7 +42,7 @@ export default function ContactPage() {
                 />
               </div>
               <div className="flex flex-col gap-1">
-                <label htmlFor="message" className="font-body text-sm font-semibold text-moss">
+                <label htmlFor="message" className="font-body text-sm font-semibold text-charcoal">
                   Message
                 </label>
                 <textarea
@@ -64,13 +64,13 @@ export default function ContactPage() {
           {/* Placeholder contact info block */}
           <FadeIn delay={0.1}>
             <div className="flex h-full flex-col justify-center gap-4 rounded-lg bg-coral p-6 sm:p-8">
-              <h2 className="font-display text-2xl font-medium text-moss">
+              <h2 className="font-display text-2xl font-bold text-charcoal">
                 Get in Touch
               </h2>
-              <p className="font-body text-moss">[TBD address]</p>
-              <p className="font-body text-moss">[TBD phone]</p>
-              <p className="font-body text-moss">[TBD email]</p>
-              <p className="font-body text-moss">[TBD social links]</p>
+              <p className="font-body text-charcoal">[TBD address]</p>
+              <p className="font-body text-charcoal">[TBD phone]</p>
+              <p className="font-body text-charcoal">[TBD email]</p>
+              <p className="font-body text-charcoal">[TBD social links]</p>
             </div>
           </FadeIn>
         </SectionContainer>

@@ -19,7 +19,7 @@ export default function AboutPage() {
       <section className="py-12">
         <SectionContainer>
           <FadeIn>
-            <h2 className="font-display text-3xl font-medium text-moss">
+            <h2 className="font-display text-3xl font-bold text-moss">
               Bio
             </h2>
             {/* Hannah's bio goes here */}
@@ -32,7 +32,7 @@ export default function AboutPage() {
       <section className="bg-coral py-12">
         <SectionContainer>
           <FadeIn>
-            <h2 className="font-display text-3xl font-medium text-moss">
+            <h2 className="font-display text-3xl font-bold text-charcoal">
               How I Work
             </h2>
             {/* "How I work" / experience content goes here */}
