@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Brand design system — single source of truth for color + type.
+  Locked palette (2026-07-13). Do not hardcode hex values or font
+  strings in components — reference these via Tailwind utilities
+  (bg-moss, text-coral, font-display, etc.) defined in tailwind.config.js.
+
+  Colors are stored as "R G B" channel triples (not hex) so Tailwind's
+  opacity modifiers (bg-moss/50, text-cream/80, etc.) can blend alpha
+  via rgb(var(--color-x) / <alpha-value>) in tailwind.config.js — a
+  plain hex custom property silently drops the opacity modifier.
+
+  Font variables (--font-script, --font-display, --font-body) are
+  supplied by next/font/google in app/layout.js, not defined here.
+*/
+:root {
+  --color-moss: 84 84 39; /* #545427 */
+  --color-forest: 59 59 27; /* #3b3b1b */
+  --color-coral: 255 187 186; /* #ffbbba */
+  --color-blush: 255 226 222; /* #ffe2de */
+  --color-cream: 244 241 234; /* #f4f1ea */
+}
+
+body {
+  background-color: rgb(var(--color-cream));
+  color: rgb(var(--color-moss));
+}
