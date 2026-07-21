@@ -11,9 +11,9 @@ import LogoFull from "@/components/logos/LogoFull";
 const LINK_CLASSES =
   "font-body text-sm font-semibold uppercase tracking-[0.15em] transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4";
 
-function NavLinks({ links, colorClass, onNavigate }) {
+function NavLinks({ links, colorClass, onNavigate, justifyClass }) {
   return (
-    <ul className="hidden items-center gap-8 md:flex">
+    <ul className={`hidden min-w-0 items-center gap-8 lg:flex ${justifyClass}`}>
       {links.map((link) => (
         <li key={link.href}>
           <Link
@@ -64,30 +64,32 @@ export default function Navbar() {
     >
       <nav
         aria-label="Primary"
-        className="mx-auto flex max-w-6xl items-start justify-between px-4 pt-4 pb-4 sm:px-6 sm:pt-5 sm:pb-5 lg:px-10 lg:pt-6 lg:pb-6"
+        className="mx-auto grid max-w-6xl grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 py-5 sm:px-6 sm:py-6 md:py-7 lg:px-10 lg:py-9 xl:py-10"
       >
-        <NavLinks links={NAV_LINKS_LEFT} colorClass={colorClass} />
+        <NavLinks links={NAV_LINKS_LEFT} colorClass={colorClass} justifyClass="justify-start" />
 
         <Link
           href="/"
           aria-label="Hannah Thompson Photo Co. — Home"
-          className="mx-4 mt-0 shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 sm:mx-6 lg:mx-8"
+          className="col-start-2 shrink-0 justify-self-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
         >
-          <LogoFull className="h-32 w-auto sm:h-40 md:h-52 lg:h-64 xl:h-72" style={logoStyle} />
+          <LogoFull className="h-40 w-auto sm:h-52 md:h-64 lg:h-80 xl:h-96" style={logoStyle} />
         </Link>
 
-        <NavLinks links={NAV_LINKS_RIGHT} colorClass={colorClass} />
+        <div className="col-start-3 flex min-w-0 items-center justify-end gap-6">
+          <NavLinks links={NAV_LINKS_RIGHT} colorClass={colorClass} justifyClass="justify-end" />
 
-        <button
-          type="button"
-          onClick={() => setIsOpen((prev) => !prev)}
-          aria-expanded={isOpen}
-          aria-controls="mobile-menu"
-          aria-label={isOpen ? "Close menu" : "Open menu"}
-          className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-md p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 md:hidden ${colorClass}`}
-        >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+          <button
+            type="button"
+            onClick={() => setIsOpen((prev) => !prev)}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-md p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 lg:hidden ${colorClass}`}
+          >
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>
@@ -98,7 +100,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="overflow-hidden border-t border-moss/10 bg-cream md:hidden"
+            className="overflow-hidden border-t border-moss/10 bg-cream lg:hidden"
           >
             <ul className="flex flex-col gap-1 px-4 py-4 sm:px-6">
               {[...NAV_LINKS_LEFT, ...NAV_LINKS_RIGHT].map((link) => (
