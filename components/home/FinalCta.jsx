@@ -12,8 +12,8 @@ export default function FinalCta() {
             Ready to start planning?
           </h2>
           <p className="mx-auto mt-6 max-w-xl font-body text-lg text-moss/80">
-            [Placeholder — tell me about your day, your people, and what you
-            want to remember most. I&rsquo;ll take it from there.]
+            Tell me about your day, your people, and what you want to
+            remember most. I&rsquo;ll take it from there.
           </p>
           <Link
             href="/contact"

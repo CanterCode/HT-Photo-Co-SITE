@@ -1,7 +1,9 @@
 import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
 import SectionContainer from "@/components/SectionContainer";
-import { featuredWorkImages } from "@/lib/homeImages";
+import { weddingPhotos, couplePhotos } from "@/lib/photos";
+
+const featuredWorkImages = [weddingPhotos[10], couplePhotos[8], weddingPhotos[20]];
 
 export default function FeaturedWork() {
   return (

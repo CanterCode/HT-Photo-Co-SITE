@@ -2,7 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import SectionContainer from "@/components/SectionContainer";
-import { aboutTeaserImage } from "@/lib/homeImages";
+import { hannahPhotos } from "@/lib/photos";
+
+const aboutTeaserImage = hannahPhotos[0];
 
 export default function AboutTeaser() {
   return (
@@ -26,12 +28,11 @@ export default function AboutTeaser() {
               Your day, told honestly
             </h2>
             <p className="mt-6 font-body text-lg text-moss/80">
-              [Placeholder — I care more about how you feel in front of the
-              camera than a perfectly posed shot. My favorite photos are
-              usually the ones nobody saw me take: a laugh between readings,
-              a hand squeezed a little tighter before you walk out. That
-              kind of quiet noticing is the whole job, as far as I&rsquo;m
-              concerned.]
+              I care more about how you feel in front of the camera than a
+              perfectly posed shot. My favorite photos are usually the ones
+              nobody saw me take: a laugh between readings, a hand squeezed
+              a little tighter before you walk out. That kind of quiet
+              noticing is the whole job, as far as I&rsquo;m concerned.
             </p>
             <Link
               href="/about"

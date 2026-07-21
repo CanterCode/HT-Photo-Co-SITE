@@ -10,8 +10,8 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        title="Contact"
-        subtitle="[Placeholder supporting line — real copy coming in a later pass.]"
+        title="Let's Tell Your Story"
+        subtitle="Tell me a little about your day, your people, and what you're picturing — I'll take it from there."
       />
 
       <section className="py-12">
@@ -26,7 +26,7 @@ export default function ContactPage() {
                 <input
                   id="name"
                   type="text"
-                  placeholder="[TBD]"
+                  placeholder="Jane Smith"
                   className="rounded-md border border-moss/20 bg-cream px-3 py-2 font-body text-moss placeholder:text-moss/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-moss"
                 />
               </div>
@@ -37,7 +37,7 @@ export default function ContactPage() {
                 <input
                   id="email"
                   type="email"
-                  placeholder="[TBD]"
+                  placeholder="jane@email.com"
                   className="rounded-md border border-moss/20 bg-cream px-3 py-2 font-body text-moss placeholder:text-moss/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-moss"
                 />
               </div>
@@ -48,7 +48,7 @@ export default function ContactPage() {
                 <textarea
                   id="message"
                   rows={4}
-                  placeholder="[TBD]"
+                  placeholder="Tell me about your day and what you're picturing..."
                   className="rounded-md border border-moss/20 bg-cream px-3 py-2 font-body text-moss placeholder:text-moss/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-moss"
                 />
               </div>

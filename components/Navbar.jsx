@@ -64,16 +64,16 @@ export default function Navbar() {
     >
       <nav
         aria-label="Primary"
-        className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8"
+        className="mx-auto flex max-w-6xl items-start justify-between px-4 pt-4 pb-4 sm:px-6 sm:pt-5 sm:pb-5 lg:px-10 lg:pt-6 lg:pb-6"
       >
         <NavLinks links={NAV_LINKS_LEFT} colorClass={colorClass} />
 
         <Link
           href="/"
           aria-label="Hannah Thompson Photo Co. — Home"
-          className="mx-2 shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 sm:mx-4"
+          className="mx-4 mt-0 shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 sm:mx-6 lg:mx-8"
         >
-          <LogoFull className="h-20 w-auto md:h-28 lg:h-32" style={logoStyle} />
+          <LogoFull className="h-32 w-auto sm:h-40 md:h-52 lg:h-64 xl:h-72" style={logoStyle} />
         </Link>
 
         <NavLinks links={NAV_LINKS_RIGHT} colorClass={colorClass} />
